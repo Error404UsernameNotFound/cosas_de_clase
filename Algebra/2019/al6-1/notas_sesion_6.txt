@@ -1,0 +1,121 @@
+Funciones empleadas:
+
+eig() *Rev.
+norm() *Saca la norma de un vector
+repmat() *Repite un vector tantas veces como se indique, creando la matriz correspondiente
+diag()
+kmeans()
+
+__________________________________________________________________________________________________________________________________________________________
+
+Anotaciones:
+
+Las matrices simetricas SIEMPRE son diagonalizables.
+Revisar concepto de diagonalizacion ortogonal. **Esa ortogonalidad implica que la matriz de paso P inversa se puede expresar como traspuesta
+
+A*A^T -->  Matriz de correlacion por filas
+A^T*A -->  Matriz de correlacion por columnas
+(Ambas son simetricas, y ambas tienen el rango de la A original; siendo A rectangular y no aceptando diagonalizacion, pero las otras dos si)
+(Semipositivas definidas --> Valores propios o positivos o nulos, nunca negativos)
+	
+__________________________________________________________________________________________________________________________________________________________
+
+Comentarios del profesor:
+
+"Poneos condon. Esta mal que yo os lo diga, porque soy vuestro profesor de Matemáticas, pero ESTAIS COMO BURROS"
+"Es que hay que hacer el muro. The wall, the wall... racistas, asquerosos, xenofobos..."
+"'Pinta en la pared' Puedo pintar porque es la 'pared"
+
+__________________________________________________________________________________________________________________________________________________________
+
+Deberes:
+
+
+
+__________________________________________________________________________________________________________________________________________________________
+
+**
+>> A = rand(3)
+
+A =
+
+    0.8147    0.9134    0.2785
+    0.9058    0.6324    0.5469
+    0.1270    0.0975    0.9575
+
+>> format short
+>> A
+
+A =
+
+    0.8147    0.9134    0.2785
+    0.9058    0.6324    0.5469
+    0.1270    0.0975    0.9575
+
+>> [P, D] = eig(A)
+
+P =
+
+    0.6752   -0.7134   -0.5420
+   -0.7375   -0.6727   -0.2587
+   -0.0120   -0.1964    0.7996
+
+
+D =
+
+   -0.1879         0         0
+         0    1.7527         0
+         0         0    0.8399
+
+******
+>> B = A*A'
+
+B =
+
+    1.5756    1.4679    0.4592
+    1.4679    1.5194    0.7003
+    0.4592    0.7003    0.9425
+
+>> B-B'
+
+ans =
+
+     0     0     0
+     0     0     0
+     0     0     0
+
+____****____
+>> [P1, D1] = eig(B)
+
+P1 =
+
+    0.6269    0.4121    0.6612
+   -0.7375    0.0400    0.6742
+    0.2513   -0.9103    0.3290
+
+
+D1 =
+
+    0.0329         0         0
+         0    0.7038         0
+         0         0    3.3007
+
+>> [P2, D2] = eig(C)
+
+P2 =
+
+    0.6904    0.3056    0.6557
+   -0.7204    0.3730    0.5848
+   -0.0658   -0.8761    0.4777
+
+
+D2 =
+
+    0.0329         0         0
+         0    0.7038         0
+         0         0    3.3007
+
+((Siendo B = A*A', y C = A'*A))
+
+**
+MX = repmat(meanX, size(X, 1), 1); wtf

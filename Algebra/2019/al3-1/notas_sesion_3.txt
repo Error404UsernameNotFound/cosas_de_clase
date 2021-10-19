@@ -1,0 +1,141 @@
+Funciones empleadas:
+
+rand(n,m)
+dot([],[]) Producto escalar
+rank() //rank([A,b(:)])  b(:) me asegura que b sea columna
+null() //Da el espacio nulo del parametro pasado (usado con matrices)
+rng('shuffle')
+
+__________________________________________________________________________________________________________________________________________________________
+
+Anotaciones:
+
+****CHARLA Metastasis y cancer de mama**** Sabado*
+
+Dependencia e independencia lineal
+Base de un espacio vectorial (minimo conjunto de vectores que lo genera)
+Paso de espacio vectorial a espacio euclidiano (permite producto escalar de dos vectores): comparacion de vectores, caracteristicas
+Sistemas lineales:
+	Ax^=b^    A(pertenece a)M(mxn)(matriz de R)  m(ecuaciones)  n(incognitas)  |  x(conjunto de soluciones)  |  b(conjunto de datos)
+Existe x si rg(A) = rg(A|b)  |  Existe un unico x si rg(A) = rg(A|b) = n
+b se puede expresar como combinacion lineal de las columnas de A -->  por eso el rango de la ampliada es el mismo
+
+Diferencia entre sistema generador y base, radica en la redundancia del generador
+*1 
+
+Espacio nulo --> vectores que no generan prediccion
+rg(A) + dim(espNulo(A)) = n  -->  Si espNulo(A) no existe, no hay espacio de incertidumbre, el rango de A es el numero de incognitas
+Sistema compatible indeterminado si existe espacio nulo
+Podemos hayar soluciones fijando el grado de libertad que tenemos (poniendo x, y o z a 0, cogiendo los valores correspondientes de B)
+*2
+	
+__________________________________________________________________________________________________________________________________________________________
+
+Comentarios del profesor:
+
+"INDEPENDENCIAAAAAA"
+"Tenemos a Alvaro, tenemos a Raul, y podemos compararlos y mezclarlos para formar un... un... Alvrraul"
+"¿Cuantos sois de las cuencas mineras? Bueno pues vosotros no vais a llegar a ministros, bajad las manos"
+"No ves porque no tienes gafas, toma... 'le pone las gafas a Alvaro' ¿Ves algo? ¿Si? Pues ve al oculista, porque tengo dioptrias"
+"Yo dirijo el grupo de problemas inversos. Tengo A, quiero b, y curo enfermedades. Give five, MOTHERFUCKER"
+"You're a dot in the ocean, gimme a break, oh my gawwwd..."
+"La elegancia reside aqui, en la cabeza, no en los zapatos... de hecho estan agujereados CHOCA ESOS CINCO"
+"*cond. busqueda novia para Alvaro* ¿Encontraste novia con tantas condiciones? ¿No? Pues eso es un sistema incompatible"
+
+__________________________________________________________________________________________________________________________________________________________
+
+Deberes:
+
+Recibir matriz A y vector b, decidir si es sistema compatible determinado, en cuyo caso resolverlo
+[x] = solveAb(A,b)  **
+Revisar tareas del Campus
+
+__________________________________________________________________________________________________________________________________________________________
+
+*1 {
+>> b=[dot(f1,x);dot(f2,x);dot(f3,x)]
+
+b =
+
+    2.1140
+    1.6258
+    1.2080
+
+>> c1=A(:,1);
+>> c2=A(:,2);
+>> c3=A(:,3);
+>> x(1)*c1+x(2)*c2+x(3)*c3
+
+ans =
+
+    2.1140
+    1.6258
+    1.2080
+				   }
+
+
+*2 {
+>> c=b(1:2)
+
+c =
+
+    2.1140
+    1.6258
+>> C=B(:,1:2)
+
+C =
+
+    0.7922    0.0357
+    0.9595    0.8491
+
+>> rank(C)
+
+ans =
+
+     2
+
+>> yp1=inv(C)*c(1:2)
+
+yp1 =
+
+    2.7207
+   -1.1596
+
+>> yp=[yp1;0]
+
+yp =
+
+    2.7207
+   -1.1596
+         0
+
+>> B*yp
+
+ans =
+
+    2.1140
+    1.6258
+
+>> w=null(B)
+
+w =
+
+   -0.6510
+    0.0604
+    0.7567
+
+>> yp1 = yp + 5*w
+
+yp1 =
+
+   -0.5343
+   -0.8577
+    3.7833
+
+>> B*yp1
+
+ans =
+
+    2.1140
+    1.6258
+				   }

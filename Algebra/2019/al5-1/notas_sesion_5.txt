@@ -1,0 +1,40 @@
+Funciones empleadas:
+
+imread()
+imshow()
+size()
+round()
+num2str()
+I(:) // Para una matriz, la expresa con todos los elementos en columna 
+subplot(m, n, k)
+reshape()
+imagesc()
+
+R = I(:,:,1) //Todas las filas, todas las columnas, primer canal (rojo) //// I(:,:,2) green, I(:,:,3) blue
+
+****I{k} = Ik; Cell array (revisar funcionamiento y funcion)
+
+**¡ ginput(n)
+
+__________________________________________________________________________________________________________________________________________________________
+
+Anotaciones:
+
+c19 = b / b ~= a1 * c1 + a2 * c2 + ... + an * cn
+Si b = SUMATORIO(k = 1; n) ak * ck => b pertenece a S(conjunto de c's), y (a1, a2, ..., an) serian las coords. de b en S
+b = [c1 c2 ... cn] * a  /=> [C * a = b]
+	
+__________________________________________________________________________________________________________________________________________________________
+
+Comentarios del profesor:
+
+"Podemos esta jodido, ¿eh? Mas jodido esta Rivera... gilipollas"
+
+__________________________________________________________________________________________________________________________________________________________
+
+Deberes:
+
+
+
+__________________________________________________________________________________________________________________________________________________________
+

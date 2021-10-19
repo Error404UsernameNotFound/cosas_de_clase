@@ -1,0 +1,37 @@
+Funciones empleadas:
+
+real(imag num) //Devuelve parte real de un numero complejo
+imag(imag num) //Devuelve parte imaginaria de un numero complejo
+abs(imag num) //Devuelve el modulo de un numero complejo
+angle(imag num) //Devuelve el angulo, expresado en radianes, de un numero complejo
+exp() //Revisar
+* rand ---> U(0, 1)   |   rand(x, y) //Devuelve una matriz de numeros aleatorios (entre 0 y 1, distr. normal) con las dimensiones indicadas
+A' //Devuelve la traspuesta de la matriz A
+disp() //Revisar
+rank(matriz A) //Devuelve el rango de una matriz
+
+__________________________________________________________________________________________________________________________________________________________
+
+Anotaciones:
+
+X rad * (180 º/pi rad) = Y º
+Binomio de Newton
+S^n = R => S = R^(1/n)   |   a = n * b   |   b = (a / n) + (2pi / n) * k, k = 0, 1, 2, ... n - 1
+MatLab Cell Arrays
+
+__________________________________________________________________________________________________________________________________________________________
+
+Comentarios del profesor:
+
+"Como la circunferencia de las pesetas, que no conocisteis, con la cara de Franco, a ver si lo exhuman y lo envian al vertero de Madrid de un vez, o como una tarta del Mercadona"
+"Igual alguno en el futuro es multimillonario y me pone en el consejo de su empresa, yo se lo agradezco"
+"¿Podéis dividir una tarta entre 0 comensales? En el Congreso de los Diputados pueden, porque tendremos nuevas elecciones y son todos IDIOOOOTAS, pero vosotros no porque tiende a infinito"
+"Ahora no conduces. Dices 'Jerónimo, llévame a Gijón' y Jerónimo te lleva. Y si le dices que pille a unos cuantos policías lo hace"
+
+__________________________________________________________________________________________________________________________________________________________
+
+Deberes:
+
+-Dado un numero complejo, realizar una funcion que devuelva todas sus operaciones
+-Programa que haga las raices de un numero complejo
+-Programa que dada una matriz cuadrada, devuelva la diagonal principal, la superior de la matriz, y la inferior de la matriz (recordar aserto de ser cuadrada)

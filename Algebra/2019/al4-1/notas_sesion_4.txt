@@ -1,0 +1,236 @@
+Funciones empleadas:
+
+rref() //(A|I) --> (I|A^(-1))
+norm()
+plot()  |  plot(t, x)   plot(t, x, '.')
+mean()
+randn()
+(Revisar script)
+dot()   -->   Producto escalar
+
+__________________________________________________________________________________________________________________________________________________________
+
+Anotaciones:
+
+xp=C(:,end) --> Coge para todas las filas, el ultimo elemento (columna final)
+PPS --> Problemas Puramente Sobredeterminado --> A € M(mxn)(R) \ m>>n \ rank(A) = n \ (No existe)Xsol => Xmc = (A^(T)A)^(-1)A^(T)b   (Pseudosolucion)
+PCD --> !Xsol = A^(-1)*b
+PCI --> Xsol = Xp + Nul(A) || ker(A) --> Hallar la solucion mas sencilla
+
+(x, y, z) = (x0, y0, z0) + lambda(-0.25, 0.01, 0.96)
+
+**4 xnm = A^(T) * (FALTA)
+
+___________
+
+xk = (1/2)g*tk^(2) + v0*tk + x0 = (tm, xm)
+= (g, v0, x0) * (0.5tk^(2), tk, 1)    -->    (Matriz)x(vector incognitas) = (vector soluciones)
+	
+__________________________________________________________________________________________________________________________________________________________
+
+Comentarios del profesor:
+
+"Dentro de poco va a ser asi en Cataluña tambien... va a haber que tirar misiles, que quieren llevar a la cabra ya tambien"
+"Cuando tienes el poder y la bondad ES LA LECHE CHOCA AHI"
+"Hitler se cargo a 3 grupos: judios, homosexuales y gitanos. Y luego miralo, que era el, pues una mierda, una mierda va a hablarte de raza aria"
+
+__________________________________________________________________________________________________________________________________________________________
+
+Deberes:
+
+
+
+__________________________________________________________________________________________________________________________________________________________
+
+**1
+>> B=[A, eye(3)]
+
+B =
+
+    0.8147    0.9134    0.2785    1.0000         0         0
+    0.9058    0.6324    0.5469         0    1.0000         0
+    0.1270    0.0975    0.9575         0         0    1.0000
+
+>> rref(B)
+
+ans =
+
+    1.0000         0         0   -1.9958    3.0630   -1.1690
+         0    1.0000         0    2.8839   -2.6919    0.6987
+         0         0    1.0000   -0.0291   -0.1320    1.1282
+
+>> C=rref(B);
+>> invA=C(:,4:end)
+
+invA =
+
+   -1.9958    3.0630   -1.1690
+    2.8839   -2.6919    0.6987
+   -0.0291   -0.1320    1.1282
+
+>> inv(A)
+
+ans =
+
+   -1.9958    3.0630   -1.1690
+    2.8839   -2.6919    0.6987
+   -0.0291   -0.1320    1.1282
+
+___________
+___________
+
+**2
+>> A=rand(4,2)
+
+A =
+
+    0.6557    0.6787
+    0.0357    0.7577
+    0.8491    0.7431
+    0.9340    0.3922
+
+>> b=rand(4,1)
+
+b =
+
+    0.6555
+    0.1712
+    0.7060
+    0.0318
+
+>> rref([A b])
+
+ans =
+
+     1     0     0
+     0     1     0
+     0     0     1
+     0     0     0
+
+>> B=A'*A
+
+B =
+
+    2.0246    1.4695
+    1.4695    1.7409
+
+>> rank(B)
+
+ans =
+
+     2
+
+>> c=A'*b
+
+c =
+
+    1.0652
+    1.1118
+
+>> [B c]
+
+ans =
+
+    2.0246    1.4695    1.0652
+    1.4695    1.7409    1.1118
+
+>> rref(ans)
+
+ans =
+
+    1.0000         0    0.1616
+         0    1.0000    0.5022
+
+>> C=ans
+
+C =
+
+    1.0000         0    0.1616
+         0    1.0000    0.5022
+
+>> xmc=C(:,end)
+
+xmc =
+
+    0.1616
+    0.5022
+
+>> E=A*xmc-b   (Vector de error)
+
+E =
+
+   -0.2086
+    0.2151
+   -0.1956
+    0.3161
+
+>> Erel=norm(E)/norm(b) * 100   (Norma de error, genera porcentaje de error)
+
+Erel =
+
+   48.7713
+
+
+
+
+**3
+>> A=rand(2,3)
+
+A =
+
+    0.6665    0.1280    0.1711
+    0.1781    0.9991    0.0326
+
+>> b=rand(2,1)
+
+b =
+
+    0.5612
+    0.8819
+
+>> rref([A b])
+
+ans =
+
+    1.0000         0    0.2593    0.6963
+         0    1.0000   -0.0136    0.7585
+
+>> null(A)
+
+ans =
+
+   -0.2510
+    0.0132
+    0.9679
+
+
+
+
+**4 Solucion de norma minima  (Solucion mas pequeñita)  (Revisar concepto de norma minima)
+>> xnm = A'*inv(A*A')*b
+
+xnm =
+
+    0.6549
+    0.7607
+    0.1595
+
+>> A*xnm
+
+ans =
+
+    0.5612
+    0.8819
+
+>> b
+
+b =
+
+    0.5612
+    0.8819
+
+>> dot(xnm, null(A))
+
+ans =
+
+  -1.1102e-16    (0 numerico, solucion de norma minima perpendicular al espacio nulo de A (sin componentes inciertas))
